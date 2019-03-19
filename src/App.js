@@ -8,7 +8,7 @@ import DirectionProvider, {
 class App extends Component {
   render() {
     return (
-      <DirectionProvider direction={DIRECTIONS.LTR}>
+      <DirectionProvider direction={DIRECTIONS.RTL}>
         <div className="App">
           <TestHeader />
           <TestHeader />
@@ -26,7 +26,31 @@ class TestHeader extends Component {
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <p>
-            Edit <code>src/App.js</code> and save to reload.
+            TestHeader Edit <code>src/App.js</code> and save to reload.
+          </p>
+          <a
+            className="App-link"
+            href="https://reactjs.org"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Learn React
+          </a>
+        </header>
+        <TestHeaderChild />
+      </div>
+    );
+  }
+}
+
+class TestHeaderChild extends Component {
+  render() {
+    return (
+      <div>
+        <header className="App-header">
+          <img src={logo} className="App-logo" alt="logo" />
+          <p>
+            TestHeaderChild Edit <code>src/App.js</code> and save to reload.
           </p>
           <a
             className="App-link"
