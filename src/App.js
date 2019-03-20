@@ -9,7 +9,7 @@ import TestHeaderChild from "./TestHeaderChild";
 export default class App extends Component {
   render() {
     return (
-      <DirectionProvider direction={DIRECTIONS.RTL}>
+      <DirectionProvider direction={DIRECTIONS.LTR}>
         <div className="app">
           <TestHeader />
           <TestHeader />

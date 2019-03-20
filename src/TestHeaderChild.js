@@ -1,28 +1,31 @@
 import React, { Component } from "react";
 import logo from "./logo.svg";
-import { css, StyleSheet } from "aphrodite";
+// import { css, StyleSheet } from "aphrodite";
+import ThemedStyleSheet from "react-with-styles/lib/ThemedStyleSheet";
+import aphroditeInterface from "react-with-styles-interface-aphrodite";
+import { withStyles, css } from "react-with-styles";
 
-export default class TestHeaderChild extends Component {
-  render() {
-    return (
-      <div>
-        <header className={css(styles.appHeader)}>
-          <img src={logo} className={css(styles.appLogo)} alt="logo" />
-          <p>
-            TestHeaderChild Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className={css(styles.appLink)}
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-    );
-  }
+ThemedStyleSheet.registerInterface(aphroditeInterface);
+
+function TestHeaderChild({ styles }) {
+  return (
+    <div>
+      <header {...css(styles.appHeader)}>
+        <img src={logo} {...css(styles.appLogo)} alt="logo" />
+        <p>
+          TestHeaderChild Edit <code>src/App.js</code> and save to reload.
+        </p>
+        <a
+          {...css(styles.appLink)}
+          href="https://reactjs.org"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Learn React
+        </a>
+      </header>
+    </div>
+  );
 }
 
 const translateKeyframes = {
@@ -48,8 +51,7 @@ const opacityKeyframes = {
     opacity: 1
   }
 };
-
-const styles = StyleSheet.create({
+export default withStyles(() => ({
   app: { textAlign: "center", flexDirection: "row" },
   appHeader: {
     backgroundColor: "#282c34",
@@ -73,4 +75,4 @@ const styles = StyleSheet.create({
     from: { transform: "rotate(0deg)" },
     to: { transform: "rotate(-360deg)" }
   }
-});
+}))(TestHeaderChild);
