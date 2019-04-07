@@ -1,11 +1,6 @@
-import React, { Component } from "react";
+import React from "react";
 import logo from "./logo.svg";
-// import { css, StyleSheet } from "aphrodite";
-import ThemedStyleSheet from "react-with-styles/lib/ThemedStyleSheet";
-import aphroditeInterface from "react-with-styles-interface-aphrodite";
-import { withStyles, css } from "react-with-styles";
-
-ThemedStyleSheet.registerInterface(aphroditeInterface);
+import { css, withStyles } from "./withStyles";
 
 function TestHeaderChild({ styles }) {
   return (
@@ -51,6 +46,7 @@ const opacityKeyframes = {
     opacity: 1
   }
 };
+
 export default withStyles(() => ({
   app: { textAlign: "center", flexDirection: "row" },
   appHeader: {
@@ -70,9 +66,10 @@ export default withStyles(() => ({
     height: "400px",
     pointerEvents: "none"
   },
-  appLink: { color: "#61dafb", marginLeft: "200px", fontSize: "30px" },
-  appLogoSpin: {
-    from: { transform: "rotate(0deg)" },
-    to: { transform: "rotate(-360deg)" }
+  appLink: {
+    color: "#61dafb",
+    marginLeft: "200px",
+    paddingLeft: "250px",
+    fontSize: "30px"
   }
 }))(TestHeaderChild);
